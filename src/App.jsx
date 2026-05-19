@@ -1,7 +1,7 @@
 function App() {
   return (
     <main>
-      <h1>Platzi-BNB</h1>
+      <h1>Platzi-host</h1>
     </main>
   );
 }
