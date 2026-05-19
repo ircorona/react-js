@@ -5,11 +5,20 @@
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
-  background: #f7f7f7;
-  color: #222;
+  background: #0f172a;
+  color: #eff3f8;
 }
 
 img {
   max-width: 100%;
   display: block;
+}
+
+.search-section input {
+  background: #0f172a;
+  color: #eff3f8;
+}
+
+.search-section input::placeholder {
+  color: #8da2c0;
 }

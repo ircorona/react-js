@@ -1,7 +1,7 @@
 function App() {
   return (
     <main>
-      <h1>Airbnb Clone</h1>
+      <h1>Platzi-BNB</h1>
     </main>
   );
 }
