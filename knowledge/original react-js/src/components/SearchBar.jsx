@@ -1,6 +1,3 @@
-// NOTA (clase 6): el buscador sale de App.jsx y pasa a ser su propio componente.
-// Por ahora es solo visual: los inputs no guardan lo que se escribe y el botón
-// no hace nada. Eso llega con useState y eventos en las clases siguientes.
 import { useState } from "react";
 
 export function SearchBar({ onSearch }) {
@@ -25,7 +22,7 @@ export function SearchBar({ onSearch }) {
       <form className="search-section" onSubmit={handleSubmit}>
         <label>
           Ciudad
-          <span className="city-input-wrapper">Nombre de la ciudad</span>
+          <span className="city-input-wrapper">
             <input 
             type="text" 
             placeholder="Santiago, Chile" 
@@ -41,6 +38,7 @@ export function SearchBar({ onSearch }) {
                 X
               </button>
             )}
+          </span>
         </label>
         <label>
           Tipo
