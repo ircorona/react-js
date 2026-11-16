@@ -14,6 +14,7 @@ import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { SearchBar } from "./components/SearchBar";
 import { PropertyList } from "./components/PropertyList";
+import {properties} from "./data/properties"; // datos mock (simulan una API)
 
 // Un componente es una función con nombre en Mayúscula que devuelve JSX.
 function App() {
@@ -28,7 +29,7 @@ function App() {
         <Hero />
 
         <SearchBar />
-        <PropertyList />
+        <PropertyList properties={properties} />
       </main>
     </div>
   );

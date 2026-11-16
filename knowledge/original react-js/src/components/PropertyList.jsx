@@ -1,10 +1,17 @@
 // NOTA (clases 6 y 7): PropertyList es el PADRE de PropertyCard.
 // Clase 6: enviaba las props escribiendo tres <PropertyCard /> a mano.
 // Clase 7: los datos viven en un array aparte y las tarjetas se generan con map.
-import { properties } from "../data/properties"; // datos mock (simulan una API)
 import { PropertyCard } from "./PropertyCard";
 
-export function PropertyList() {
+export function PropertyList({ properties }) {
+  if (properties.length === 0) {
+    return (
+      <section className="properties-section">
+        <h3>Alojamientos disponibles</h3>
+        <p>No hay alojamientos disponibles.</p>
+      </section>
+    )
+  }
   return (
     <section className="properties-section">
       <h3>Alojamientos disponibles</h3>

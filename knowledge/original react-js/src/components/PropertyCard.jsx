@@ -14,7 +14,7 @@ export function PropertyCard({ title, location, price, image, type }) {
       <div className="property-card-content">
         <h4>{title}</h4>
         <p>{location}</p>
-        <p>{type}</p>
+        <p>{type || "Tipo no especificado"}</p>
         {/* El $ es texto normal y {price} es el valor: no es un template
             literal. El precio llega como número y el símbolo vive solo aquí. */}
         <strong>${price} / noche</strong>
