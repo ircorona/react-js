@@ -6,7 +6,7 @@ export function PropertyCard() {
         alt="Apartamento moderno"
       />
       <div className="property-card-content">
-        <h4>Apartamento moderno</h4>
+        <h2>Apartamento moderno</h2>
         <p>Santiago, Chile</p>
         <strong>$75 / noche</strong>
       </div>

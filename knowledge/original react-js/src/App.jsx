@@ -1,5 +1,6 @@
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
+import { SearchBar } from "./components/SearchBar";
 import { PropertyList } from "./components/PropertyList";
 
 function App() {
@@ -10,22 +11,7 @@ function App() {
       <main className="main-content">
         <Hero />
 
-        <section className="search-box">
-          <label>
-            Ciudad
-            <input type="text" placeholder="Santiago, Chile" />
-          </label>
-          <label>
-            Tipo
-            <input type="text" placeholder="Apartamento" />
-          </label>
-          <label>
-            Huéspedes
-            <input type="number" placeholder="2" />
-          </label>
-          <button>Buscar</button>
-        </section>
-
+        <SearchBar />
         <PropertyList />
       </main>
     </div>
