@@ -1,6 +1,6 @@
 export function SearchBar() {
   return (
-    <section className="search-box">
+    <section className="search-section">
       <label>
         Ciudad
         <input type="text" placeholder="Santiago, Chile" />
