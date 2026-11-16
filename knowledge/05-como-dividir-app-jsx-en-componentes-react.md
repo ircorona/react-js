@@ -20,9 +20,9 @@ Dividir la interfaz en componentes es uno de los pasos más importantes en React
 
 El truco está en el prompt [00:24]. En la clase se le pide a Claude:
 
-> ¿Cuál es la mejor estrategia para dividir este archivo App.jsx de React en componentes? Dame la respuesta en una estructura visual.
+> ¿Cuál crees que es la mejor estrategia para dividir este archivo App.jsx (React) en componentes? Dame tu respuesta en una estructura visual de los componentes.
 
-Y se pega el archivo completo. El objetivo es que la IA recomiende la ubicación de cada componente respecto a los demás.
+Y debajo se pega el archivo `App.jsx` completo. El objetivo es que la IA recomiende la ubicación de cada componente respecto a los demás.
 
 Herramientas que sirven para esto [01:20]:
 
