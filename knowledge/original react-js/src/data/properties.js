@@ -1,9 +1,12 @@
+// NOTA (clase 7): datos mock. Simulan lo que más adelante vendría de una API o
+// una base de datos. Para agregar una tarjeta basta con sumar un objeto aquí;
+// no hay que tocar ningún componente.
 export const properties = [
   {
-    id: 1,
+    id: 1, // no se muestra: PropertyList lo usa como key
     title: "Apartamento moderno",
     location: "Santiago, Chile",
-    price: 75,
+    price: 75, // número, sin el símbolo $ (lo pone PropertyCard)
     image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2",
     type: "Apartamento"
   },

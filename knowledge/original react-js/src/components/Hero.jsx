@@ -1,3 +1,5 @@
+// NOTA (clase 5): sección destacada bajo el header. Contenido fijo, sin props.
+// La foto de fondo no está aquí: viene de la clase .hero en index.css.
 export function Hero() {
   return (
     <section className="hero">

@@ -1,3 +1,5 @@
+// NOTA (clase 5): componente independiente para la barra superior.
+// No recibe props porque su contenido es siempre el mismo.
 export function Header() {
   return (
     <header className="header">

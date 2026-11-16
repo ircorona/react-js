@@ -1,4 +1,7 @@
-import { properties } from "../data/properties";
+// NOTA (clases 6 y 7): PropertyList es el PADRE de PropertyCard.
+// Clase 6: enviaba las props escribiendo tres <PropertyCard /> a mano.
+// Clase 7: los datos viven en un array aparte y las tarjetas se generan con map.
+import { properties } from "../data/properties"; // datos mock (simulan una API)
 import { PropertyCard } from "./PropertyCard";
 
 export function PropertyList() {
@@ -6,9 +9,18 @@ export function PropertyList() {
     <section className="properties-section">
       <h3>Alojamientos disponibles</h3>
       <div className="properties-grid">
+        {/* Las llaves { } permiten escribir JavaScript dentro del JSX.
+            map recorre el array y devuelve un <PropertyCard /> por cada objeto.
+            La flecha usa paréntesis => ( ... ), así el JSX se devuelve sin
+            escribir return. */}
         {properties.map((property) => (
           <PropertyCard
+            // key: prop especial de React. Identifica cada elemento de la lista
+            // para actualizar solo lo que cambia. Debe ser única y estable.
+            // No llega al hijo: PropertyCard no puede leerla.
             key={property.id}
+            // Props: datos que viajan del padre al hijo. El nombre de cada una
+            // debe coincidir con el que el hijo desestructura.
             title={property.title}
             location={property.location}
             price={property.price}
