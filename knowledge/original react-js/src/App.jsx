@@ -9,7 +9,7 @@ function App() {
       <Header />
 
       <main className="main-content">
-        <Hero />
+       {/* <Hero /> */}
 
         <SearchBar />
         <PropertyList />
