@@ -10,6 +10,8 @@
 //       └── PropertyCard   (hijo de PropertyList, por eso no se importa aquí)
 
 // export function X  ->  se importa CON llaves: import { X }
+import { useState } from "react";
+
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { SearchBar } from "./components/SearchBar";
@@ -18,6 +20,17 @@ import {properties} from "./data/properties"; // datos mock (simulan una API)
 
 // Un componente es una función con nombre en Mayúscula que devuelve JSX.
 function App() {
+  const [search, setSearch] = useState("");
+
+  const filteredProperties = properties.filter((property) => {
+    const searchText = search.toLowerCase();
+
+    return (
+      property.title.toLowerCase().includes(searchText) ||
+      property.location.toLowerCase().includes(searchText) ||
+      property.type.toLowerCase().includes(searchText)
+    );
+  });
   return (
     // JSX debe devolver UN solo elemento raíz: este <div> envuelve todo.
     // En JSX se escribe className en lugar de class.
@@ -28,8 +41,8 @@ function App() {
       <main className="main-content">
         <Hero />
 
-        <SearchBar />
-        <PropertyList properties={properties} />
+        <SearchBar onSearch={setSearch} />
+        <PropertyList properties={filteredProperties} />
       </main>
     </div>
   );
