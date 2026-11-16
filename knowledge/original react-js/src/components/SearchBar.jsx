@@ -12,16 +12,32 @@ export function SearchBar() {
     setSearchedCity(city.trim());
   }
 
+  function handleClearSearch() {
+    setCity("");
+    setSearchedCity("");
+  }
+
   return (
     <>
       <form className="search-section" onSubmit={handleSubmit}>
         <label>
           Ciudad
-          <input 
-          type="text" 
-          placeholder="Santiago, Chile" 
-          value={city}
-          onChange={(event) => setCity(event.target.value)} />
+          <span className="city-input-wrapper">Nombre de la ciudad</span>
+            <input 
+            type="text" 
+            placeholder="Santiago, Chile" 
+            value={city}
+            onChange={(event) => setCity(event.target.value)} 
+            />
+            {(city || searchedCity) && (
+              <button 
+                type="button"
+                className="clear-city-button"
+                onClick={handleClearSearch}
+              >
+                X
+              </button>
+            )}
         </label>
         <label>
           Tipo
@@ -31,7 +47,7 @@ export function SearchBar() {
           Huéspedes
           <input type="number" placeholder="2" />
         </label>
-        <button>Buscar</button>
+        <button type="submit">Buscar</button>
       </form>
       <p className="current-search">
         Resultados de búsqueda: <strong>{searchedCity || "ninguna ciudad"}</strong>.
