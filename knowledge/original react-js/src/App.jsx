@@ -10,7 +10,7 @@
 //       └── PropertyCard   (hijo de PropertyList, por eso no se importa aquí)
 
 // export function X  ->  se importa CON llaves: import { X }
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
@@ -22,8 +22,16 @@ import {properties} from "./data/properties"; // datos mock (simulan una API)
 function App() {
   const [city, setCity] = useState("");
   const [search, setSearch] = useState("");
+  const [propertiesFromAPI, setPropertiesFromAPI] = useState([]);
 
-  const filteredProperties = properties.filter((property) => {
+  useEffect(() => {
+    setTimeout(() => {
+      setPropertiesFromAPI(properties);
+    }, 1000);
+
+  }, []);
+
+  const filteredProperties = propertiesFromAPI.filter((property) => {
     const searchText = search.toLowerCase();
 
     return (
