@@ -20,6 +20,7 @@ import {properties} from "./data/properties"; // datos mock (simulan una API)
 
 // Un componente es una función con nombre en Mayúscula que devuelve JSX.
 function App() {
+  const [city, setCity] = useState("");
   const [search, setSearch] = useState("");
 
   const filteredProperties = properties.filter((property) => {
@@ -41,7 +42,16 @@ function App() {
       <main className="main-content">
         <Hero />
 
-        <SearchBar onSearch={setSearch} />
+        <SearchBar 
+          value={city}
+          searchValue={search}
+          onChange={setCity}
+          onSearch={setSearch}
+          onClear={() => {
+            setCity("");
+            setSearch("");
+          }}
+        />
         <PropertyList properties={filteredProperties} />
       </main>
     </div>

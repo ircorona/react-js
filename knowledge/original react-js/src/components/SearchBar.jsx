@@ -1,21 +1,16 @@
-import { useState } from "react";
-
-export function SearchBar({ onSearch }) {
-  const [city, setCity] = useState("");
-  const [searchedCity, setSearchedCity] = useState("");
+export function SearchBar({ 
+  value, 
+  searchValue,
+  onChange, 
+  onSearch, 
+  onClear,
+  }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const nextSearch = city.trim();
-    setSearchedCity(nextSearch);
-    onSearch(nextSearch);
+    onSearch(value.trim());
   }
 
-  function handleClearSearch() {
-    setCity("");
-    setSearchedCity("");
-    onSearch("");
-  }
 
   return (
     <>
@@ -26,14 +21,14 @@ export function SearchBar({ onSearch }) {
             <input 
             type="text" 
             placeholder="Santiago, Chile" 
-            value={city}
-            onChange={(event) => setCity(event.target.value)} 
+            value={value}
+            onChange={(event) => onChange(event.target.value)} 
             />
-            {(city || searchedCity) && (
+            {(value || searchValue) && (
               <button 
                 type="button"
                 className="clear-city-button"
-                onClick={handleClearSearch}
+                onClick={onClear}
               >
                 X
               </button>
@@ -51,7 +46,7 @@ export function SearchBar({ onSearch }) {
         <button type="submit">Buscar</button>
       </form>
       <p className="current-search">
-        Resultados de búsqueda: <strong>{searchedCity || "ninguna ciudad"}</strong>.
+        Resultados de búsqueda: <strong>{searchValue || "ninguna ciudad"}</strong>.
       </p>
     </>
   );
