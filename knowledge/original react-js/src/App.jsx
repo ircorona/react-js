@@ -31,7 +31,7 @@ function App() {
      try {
        setPropertiesFromAPI(properties);
       // throw new Error("Error al cargar las propiedades");
-     } catch (error) {
+     } catch  {
       setError("Error al cargar las propiedades");
      }  finally {
       setIsLoading(false);
