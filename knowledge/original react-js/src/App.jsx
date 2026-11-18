@@ -12,11 +12,12 @@
 // export function X  ->  se importa CON llaves: import { X }
 import { useState, useEffect } from "react";
 
-import { Header } from "./components/Header";
-import { Hero } from "./components/Hero";
-import { SearchBar } from "./components/SearchBar";
-import { PropertyList } from "./components/PropertyList";
+import { Header } from "./components/layout/Header";
+import { Hero } from "./components/ui/Hero";
+import { SearchBar } from "./components/ui/SearchBar";
+import { PropertyList } from "./components/properties/PropertyList";
 import {properties} from "./data/properties"; // datos mock (simulan una API)
+import { filterProperties } from "./utils/filterProperties";
 
 // Un componente es una función con nombre en Mayúscula que devuelve JSX.
 function App() {
@@ -42,15 +43,8 @@ function App() {
 
   }, []);
 
-  const filteredProperties = propertiesFromAPI.filter((property) => {
-    const searchText = search.toLowerCase();
+  const filteredProperties = filterProperties(propertiesFromAPI, search);
 
-    return (
-      property.title.toLowerCase().includes(searchText) ||
-      property.location.toLowerCase().includes(searchText) ||
-      property.type.toLowerCase().includes(searchText)
-    );
-  });
   return (
     // JSX debe devolver UN solo elemento raíz: este <div> envuelve todo.
     // En JSX se escribe className en lugar de class.
