@@ -1,12 +1,22 @@
-export function SearchBar({ 
-  value, 
-  searchValue,
-  onChange, 
-  onSearch, 
-  onClear,
-  }) {
+import type { FormEvent } from "react";
 
-  function handleSubmit(event) {
+interface SearchBarProps {
+  value: string;
+  searchValue: string;
+  onChange: (value: string) => void;
+  onSearch: (value: string) => void;
+  onClear: () => void;
+}
+
+export function SearchBar({
+  value,
+  searchValue,
+  onChange,
+  onSearch,
+  onClear,
+}: SearchBarProps) {
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     onSearch(value.trim());
   }

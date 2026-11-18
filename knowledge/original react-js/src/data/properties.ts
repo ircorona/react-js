@@ -1,7 +1,10 @@
 // NOTA (clase 7): datos mock. Simulan lo que más adelante vendría de una API o
 // una base de datos. Para agregar una tarjeta basta con sumar un objeto aquí;
 // no hay que tocar ningún componente.
-export const properties = [
+// El tipo Property hace que TypeScript avise si falta un campo o tiene otro tipo.
+import type { Property } from "../types/property";
+
+export const properties: Property[] = [
   {
     id: 1, // no se muestra: PropertyList lo usa como key
     title: "Apartamento moderno",

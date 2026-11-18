@@ -2,8 +2,13 @@
 // Clase 6: enviaba las props escribiendo tres <PropertyCard /> a mano.
 // Clase 7: los datos viven en un array aparte y las tarjetas se generan con map.
 import { PropertyCard } from "./PropertyCard";
+import type { Property } from "../../types/property";
 
-export function PropertyList({ properties }) {
+interface PropertyListProps {
+  properties: Property[];
+}
+
+export function PropertyList({ properties }: PropertyListProps) {
   if (properties.length === 0) {
     return (
       <section className="properties-section">

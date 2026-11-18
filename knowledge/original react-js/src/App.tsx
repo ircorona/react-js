@@ -18,14 +18,15 @@ import { SearchBar } from "./components/ui/SearchBar";
 import { PropertyList } from "./components/properties/PropertyList";
 import {properties} from "./data/properties"; // datos mock (simulan una API)
 import { filterProperties } from "./utils/filterProperties";
+import type { Property } from "./types/property";
 
 // Un componente es una función con nombre en Mayúscula que devuelve JSX.
 function App() {
   const [city, setCity] = useState("");
   const [search, setSearch] = useState("");
-  const [propertiesFromAPI, setPropertiesFromAPI] = useState([]);
+  const [propertiesFromAPI, setPropertiesFromAPI] = useState<Property[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const timerID = setTimeout(() => {
@@ -76,5 +77,5 @@ function App() {
   );
 }
 
-// export default  ->  se importa SIN llaves: import App from './App.jsx'
+// export default  ->  se importa SIN llaves: import App from './App'
 export default App;
