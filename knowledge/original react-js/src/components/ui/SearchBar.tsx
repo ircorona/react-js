@@ -1,4 +1,4 @@
-import type { FormEvent } from "react";
+import type { ChangeEvent, SubmitEvent } from "react";
 
 interface SearchBarProps {
   value: string;
@@ -16,11 +16,14 @@ export function SearchBar({
   onClear,
 }: SearchBarProps) {
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    onChange(event.target.value);
+  }
+
+  function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     onSearch(value.trim());
   }
-
 
   return (
     <>
@@ -32,7 +35,7 @@ export function SearchBar({
             type="text" 
             placeholder="Santiago, Chile" 
             value={value}
-            onChange={(event) => onChange(event.target.value)} 
+            onChange={handleChange}
             />
             {(value || searchValue) && (
               <button 

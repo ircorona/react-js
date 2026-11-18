@@ -31,13 +31,9 @@ export function PropertyList({ properties }: PropertyListProps) {
             // para actualizar solo lo que cambia. Debe ser única y estable.
             // No llega al hijo: PropertyCard no puede leerla.
             key={property.id}
-            // Props: datos que viajan del padre al hijo. El nombre de cada una
-            // debe coincidir con el que el hijo desestructura.
-            title={property.title}
-            location={property.location}
-            price={property.price}
-            image={property.image}
-            type={property.type}
+            // Props: datos que viajan del padre al hijo. PropertyCard espera UNA
+            // sola prop llamada property, con el objeto completo.
+            property={property}
           />
         ))}
       </div>
