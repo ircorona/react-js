@@ -5,7 +5,12 @@
 //
 // Las llaves en los parámetros son desestructuración: React entrega un solo
 // objeto props y de él se sacan estos valores. Las props son de solo lectura.
-export function PropertyCard({ title, location, price, image, type }) {
+import type { Property } from "../../types/property";
+
+// Recibe todos los campos de Property menos id (la key no llega al hijo).
+type PropertyCardProps = Omit<Property, "id">;
+
+export function PropertyCard({ title, location, price, image, type }: PropertyCardProps) {
   return (
     // Un cambio aquí se refleja en TODAS las tarjetas a la vez.
     <article className="property-card">
